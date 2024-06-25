@@ -1,0 +1,5 @@
+###Ruta principal (Devuelve un mensaje de bienvenida a la API).
+http://localhost:3000
+
+###Devuelve todos los productos.
+GET http://localhost:3000/productos
