@@ -26,6 +26,21 @@ app.get("/", (req, res) => {
   );
 });
 
+//Devuelve todos los productos.
+app.get("/productos", async (req, res) => {
+  try {
+    const productos = await Producto.find();
+    //Verificamos si se encontraron productos.
+    if (productos.length === 0) {
+      return res.status(404).json({ error: "No se encontraron productos" });
+    } else {
+      res.json(productos);
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Error del servidor" });
+  }
+});
+
 //Inicializamos el servidor.
 app.listen(port, () => {
   console.log(`Servidor escuchando en: http://localhost:${port}`);
