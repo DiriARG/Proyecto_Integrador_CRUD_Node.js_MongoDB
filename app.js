@@ -58,6 +58,27 @@ app.get("/productos/:id", async (req, res) => {
   }
 });
 
+//Devuelve los productos que coinciden con el nombre especificado (búsqueda parcial).
+app.get("/productos/nombre/:nombre", async (req, res) => {
+  const { nombre } = req.params;
+  try {
+    const productos = await Producto.find({
+      nombre: { $regex: nombre, $options: "i" }, //Crea una expresión regular con el nombre del producto y el modificador "i" para que la búsqueda sea insensible a mayúsculas y minúsculas.
+    });
+    //Verificamos si se encuentran productos basados en la longitud del array "productos".
+    //Si el array es igual a 0, significa que no se encontraron productos que cumplan con los criterios de busqueda.
+    if (productos.length === 0) {
+      return res
+        .status(404)
+        .json({ error: "No se encontraron los productos especificados" });
+    } else {
+      res.json(productos);
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Error del servidor" });
+  }
+});
+
 //Inicializamos el servidor.
 app.listen(port, () => {
   console.log(`Servidor escuchando en: http://localhost:${port}`);

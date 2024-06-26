@@ -5,4 +5,7 @@ http://localhost:3000
 GET http://localhost:3000/productos
 
 ###Devuelve un producto por su ID. 
-GET http://localhost:3000/productos/667b18294376c71e3f404f9
+GET http://localhost:3000/productos/667b18294376c71e3f404f18
+
+###Filtrar productos por nombre (búsqueda parcial).
+GET http://localhost:3000/productos/nombre/man
