@@ -41,6 +41,23 @@ app.get("/productos", async (req, res) => {
   }
 });
 
+//Obtener un producto por su ID.
+app.get("/productos/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const producto = await Producto.findById(id);
+    if (!producto) {
+      return res
+        .status(404)
+        .json({ error: `Producto con ID:${id} no encontrado` });
+    } else {
+      res.json(producto);
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Error del servidor" });
+  }
+});
+
 //Inicializamos el servidor.
 app.listen(port, () => {
   console.log(`Servidor escuchando en: http://localhost:${port}`);
