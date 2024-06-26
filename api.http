@@ -26,6 +26,8 @@ PATCH http://localhost:3000/productos/667c5cb897c471bac156d16
 content-type: application/json
 
 {
-    "codigo": 100,
     "precio": 44000
 }
+
+###Borrar un producto.
+DELETE http://localhost:3000/productos/667c5e57583157f264da0f0i

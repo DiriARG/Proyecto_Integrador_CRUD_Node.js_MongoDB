@@ -112,7 +112,25 @@ app.patch("/productos/:id", async (req, res) => {
   }
 });
 
-
+//Borrar un producto.
+app.delete("/productos/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const productoEliminado = await Producto.findByIdAndDelete(id);
+    if (!productoEliminado) {
+      return res
+        .status(404)
+        .json({ error: "Producto no encontrado para eliminar" });
+    } else {
+      res.json({
+        message: "Producto eliminado con exito: ",
+        productoEliminado,
+      });
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Error del servidor" });
+  }
+});
 
 //Inicializamos el servidor.
 app.listen(port, () => {
