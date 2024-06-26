@@ -79,6 +79,17 @@ app.get("/productos/nombre/:nombre", async (req, res) => {
   }
 });
 
+//Agregar un nuevo producto.
+app.post("/productos", async (req, res) => {
+  const nuevoProducto = new Producto(req.body);
+  try {
+    await nuevoProducto.save();
+    res.status(201).json({ message: "Nuevo producto creado: ", nuevoProducto});
+  } catch (error) {
+    res.status(500).json({ error: "Error del servidor" });
+  }
+});
+
 //Inicializamos el servidor.
 app.listen(port, () => {
   console.log(`Servidor escuchando en: http://localhost:${port}`);

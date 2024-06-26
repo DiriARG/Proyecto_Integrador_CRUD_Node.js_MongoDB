@@ -8,4 +8,15 @@ GET http://localhost:3000/productos
 GET http://localhost:3000/productos/667b18294376c71e3f404f18
 
 ###Filtrar productos por nombre (búsqueda parcial).
-GET http://localhost:3000/productos/nombre/man
+GET http://localhost:3000/productos/nombre/d
+
+###Agregar un nuevo producto.
+POST http://localhost:3000/productos 
+content-type: application/json
+
+{
+    "codigo": 28,
+    "nombre": "Duriannnn",
+    "precio": 10000,
+    "categoria": "Fruta"
+}
