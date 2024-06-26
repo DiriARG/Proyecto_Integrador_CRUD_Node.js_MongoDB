@@ -84,11 +84,35 @@ app.post("/productos", async (req, res) => {
   const nuevoProducto = new Producto(req.body);
   try {
     await nuevoProducto.save();
-    res.status(201).json({ message: "Nuevo producto creado: ", nuevoProducto});
+    res.status(201).json({ message: "Nuevo producto creado: ", nuevoProducto });
   } catch (error) {
     res.status(500).json({ error: "Error del servidor" });
   }
 });
+
+//Modificar el precio de un producto (parcialmente).
+app.patch("/productos/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const productoActualizado = await Producto.findByIdAndUpdate(id, req.body, {
+      new: true, //Devuelve el documento actualizado en lugar del original.
+    });
+    if (!productoActualizado) {
+      return res
+        .status(404)
+        .json({ error: "Producto no encontrado para su actualización" });
+    } else {
+      res.json({
+        message: "Producto actualizado con exito: ",
+        productoActualizado,
+      });
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Error del servidor" });
+  }
+});
+
+
 
 //Inicializamos el servidor.
 app.listen(port, () => {
