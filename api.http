@@ -3,3 +3,6 @@ http://localhost:3000
 
 ###Devuelve todos los productos.
 GET http://localhost:3000/productos
+
+###Devuelve un producto por su ID. 
+GET http://localhost:3000/productos/667b18294376c71e3f404f9
