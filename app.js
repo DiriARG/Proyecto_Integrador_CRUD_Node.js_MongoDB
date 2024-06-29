@@ -14,6 +14,9 @@ const Producto = require("./product.js");
 //Conectarse a MongoDB usando Mongoose.
 connectDB();
 
+//Desactivar el encabezado X-Powered-By por razones de seguridad.
+app.disable('x-powered-by');
+
 //Middleware que sirve para reconocer el objeto de solicitud entrante como un objeto JSON (para POST y PUT).
 app.use(express.json());
 //Middleware de morgan.
