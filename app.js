@@ -15,7 +15,7 @@ const Producto = require("./product.js");
 connectDB();
 
 //Desactivar el encabezado X-Powered-By por razones de seguridad.
-app.disable('x-powered-by');
+app.disable("x-powered-by");
 
 //Middleware que sirve para reconocer el objeto de solicitud entrante como un objeto JSON (para POST y PUT).
 app.use(express.json());
@@ -86,10 +86,26 @@ app.get("/productos/nombre/:nombre", async (req, res) => {
 
 //Agregar un nuevo producto.
 app.post("/productos", async (req, res) => {
+  //Crear una instancia del modelo Producto con los datos recibidos en req.body.
   const nuevoProducto = new Producto(req.body);
   try {
-    await nuevoProducto.save();
-    res.status(201).json({ message: "Nuevo producto creado ✅: ", nuevoProducto });
+    //Validamos que todos los campos requeridos estén presentes en req.body.
+    if (
+      !req.body.codigo ||
+      !req.body.nombre ||
+      !req.body.precio ||
+      !req.body.categoria
+    ) {
+      return res
+        .status(400)
+        .json({ error: "Todos los campos son obligatorios 🚫!" }); //Si no lo estan devolvemos un error 400.
+    } else {
+      //Caso contrario si estan todos los campos, guardamos el nuevo producto y devolvemos un mensaje con estatus 201.
+      await nuevoProducto.save();
+      res
+        .status(201)
+        .json({ message: "Nuevo producto creado ✅: ", nuevoProducto });
+    }
   } catch (error) {
     res.status(500).json({ error: "Error del servidor 🚫⚙️" });
   }
