@@ -153,6 +153,11 @@ app.delete("/productos/:id", async (req, res) => {
   }
 });
 
+//Middleware para manejar rutas no encontradas.
+app.use((req, res) => { //Cuando se llama a app.use(), el middleware se ejecuta para cualquier solicitud (GET, POST, etc.) que llegue a la aplicación. 
+  res.status(404).json({ error: "Ruta no encontrada 🚫❗" });
+});
+
 //Inicializamos el servidor.
 app.listen(port, () => {
   console.log(`Servidor escuchando en: http://localhost:${port}`);
