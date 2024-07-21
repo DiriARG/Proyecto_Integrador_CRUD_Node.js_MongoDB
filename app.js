@@ -111,20 +111,31 @@ app.post("/productos", async (req, res) => {
   }
 });
 
-//Modificar el precio de un producto (parcialmente).
+//Modificar SOLO el precio de un producto.
 app.patch("/productos/:id", async (req, res) => {
   const { id } = req.params;
+  const { precio } = req.body; //Extraer solo el campo 'precio' del cuerpo de la solicitud.
+
+  //Verificar que el campo 'precio' esté presente y sea válido.
+  if (!precio) {
+    return res
+      .status(400)
+      .json({ error: "El campo 'precio' es requerido 🛑❗" });
+  }
+
   try {
-    const productoActualizado = await Producto.findByIdAndUpdate(id, req.body, {
-      new: true, //Devuelve el documento actualizado en lugar del original.
-    });
+    const productoActualizado = await Producto.findByIdAndUpdate(
+      id,
+      { precio }, //Solo actualiza el campo 'precio'.
+      { new: true } //Devuelve el documento actualizado en lugar del original.
+    );
     if (!productoActualizado) {
       return res
         .status(404)
         .json({ error: "Producto no encontrado para su actualización 🕵️❗" });
     } else {
       res.json({
-        message: "Producto actualizado con exito ✅: ",
+        message: "Precio del producto actualizado con éxito ✅",
         productoActualizado,
       });
     }
@@ -154,7 +165,8 @@ app.delete("/productos/:id", async (req, res) => {
 });
 
 //Middleware para manejar rutas no encontradas.
-app.use((req, res) => { //Cuando se llama a app.use(), el middleware se ejecuta para cualquier solicitud (GET, POST, etc.) que llegue a la aplicación. 
+app.use((req, res) => {
+  //Cuando se llama a app.use(), el middleware se ejecuta para cualquier solicitud (GET, POST, etc.) que llegue a la aplicación.
   res.status(404).json({ error: "Ruta no encontrada 🚫❗" });
 });
 
