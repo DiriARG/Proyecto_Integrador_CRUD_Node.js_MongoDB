@@ -42,7 +42,12 @@ app.get("/productos", async (req, res) => {
       res.json(productos);
     }
   } catch (error) {
-    res.status(500).json({ error: "Error del servidor 🚫⚙️" });
+    //Registramos el error en la consola para su seguimiento.
+    console.error("Error al obtener todos los productos: ", error);
+    //Respondemos con un mensaje al cliente.
+    res
+      .status(500)
+      .json({ error: "Error del servidor al devolver todos los productos 🚫⚙️" });
   }
 });
 
@@ -59,7 +64,10 @@ app.get("/productos/:id", async (req, res) => {
       res.json(producto);
     }
   } catch (error) {
-    res.status(500).json({ error: "Error del servidor 🚫⚙️" });
+    console.error(`Error al obtener el producto con ID:${id}: `, error);
+    res
+      .status(500)
+      .json({ error: "Error del servidor al obtener el producto 🚫⚙️" });
   }
 });
 
@@ -80,7 +88,10 @@ app.get("/productos/nombre/:nombre", async (req, res) => {
       res.json(productos);
     }
   } catch (error) {
-    res.status(500).json({ error: "Error del servidor 🚫⚙️" });
+    console.error("Error al intentar buscar los productos: ", error);
+    res
+      .status(500)
+      .json({ error: "Error del servidor al buscar los productos 🚫⚙️" });
   }
 });
 
@@ -107,7 +118,10 @@ app.post("/productos", async (req, res) => {
         .json({ message: "Nuevo producto creado ✅: ", nuevoProducto });
     }
   } catch (error) {
-    res.status(500).json({ error: "Error del servidor 🚫⚙️" });
+    console.error("Error al intentar crear un nuevo producto: ", error);
+    res
+      .status(500)
+      .json({ error: "Error del servidor al crear un nuevo producto 🚫⚙️" });
   }
 });
 
@@ -132,15 +146,21 @@ app.patch("/productos/:id", async (req, res) => {
     if (!productoActualizado) {
       return res
         .status(404)
-        .json({ error: "Producto no encontrado para su actualización 🕵️❗" });
+        .json({ error: `Producto con ID:${id} no encontrado para su actualización 🕵️❗` });
     } else {
       res.json({
-        message: "Precio del producto actualizado con éxito ✅",
+        message: "Precio del producto actualizado con éxito ✅: ",
         productoActualizado,
       });
     }
   } catch (error) {
-    res.status(500).json({ error: "Error del servidor 🚫⚙️" });
+    console.error(
+      `Error al intentar actualizar el precio del producto con ID:${id}: `,
+      error
+    );
+    res.status(500).json({
+      error: "Error del servidor al actualizar el precio del producto 🚫⚙️",
+    });
   }
 });
 
@@ -152,7 +172,7 @@ app.delete("/productos/:id", async (req, res) => {
     if (!productoEliminado) {
       return res
         .status(404)
-        .json({ error: "Producto no encontrado para eliminar 🕵️❗" });
+        .json({ error: `Producto con ID:${id} no encontrado para eliminar 🕵️❗` });
     } else {
       res.json({
         message: "Producto eliminado con exito ✅: ",
@@ -160,7 +180,13 @@ app.delete("/productos/:id", async (req, res) => {
       });
     }
   } catch (error) {
-    res.status(500).json({ error: "Error del servidor 🚫⚙️" });
+    console.error(
+      `Error al intentar eliminar el producto con ID:${id}: `,
+      error
+    );
+    res
+      .status(500)
+      .json({ error: "Error del servidor al eliminar un producto 🚫⚙️" });
   }
 });
 
