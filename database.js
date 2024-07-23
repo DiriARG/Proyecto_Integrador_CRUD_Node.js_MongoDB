@@ -1,4 +1,4 @@
-//Importa el modulo mongoose.
+//Importamos el modulo mongoose.
 const mongoose = require("mongoose");
 //Cargamos las variables de entorno desde el archivo .env
 process.loadEnvFile();
@@ -7,7 +7,7 @@ process.loadEnvFile();
 const URI = process.env.MONGODB_URLSTRING; //URI de conexión a MongoDB.
 const DATABASE_NAME = process.env.DATABASE_NAME; //Nombre de la base de datos.
 
-// Conectar a MongoDB usando Mongoose.
+//Nos conectamos a MongoDB usando Mongoose.
 const connectDB = () => {
   return mongoose
     .connect(URI + DATABASE_NAME)
@@ -15,5 +15,5 @@ const connectDB = () => {
     .catch((err) => console.log("Error al conectarse: ", err));
 };
 
-//Exportamos el modulo de conexion.
+//Exportamos el modulo de conexión.
 module.exports = connectDB;
