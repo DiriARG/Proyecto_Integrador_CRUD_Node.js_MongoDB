@@ -1,4 +1,4 @@
-//Importación modulo Express JS.
+//Importación del modulo Express JS.
 const express = require("express");
 //Creamos una instancia de la aplicación Express.
 const app = express();
@@ -14,7 +14,7 @@ const Producto = require("./product.js");
 //Conectarse a MongoDB usando Mongoose.
 connectDB();
 
-//Desactivar el encabezado X-Powered-By por razones de seguridad.
+//Desactivamos el encabezado X-Powered-By por razones de seguridad.
 app.disable("x-powered-by");
 
 //Middleware que sirve para reconocer el objeto de solicitud entrante como un objeto JSON (para POST y PUT).
@@ -79,7 +79,7 @@ app.get("/productos/nombre/:nombre", async (req, res) => {
       nombre: { $regex: nombre, $options: "i" }, //Crea una expresión regular con el nombre del producto y el modificador "i" para que la búsqueda sea insensible a mayúsculas y minúsculas.
     });
     //Verificamos si se encuentran productos basados en la longitud del array "productos".
-    //Si el array es igual a 0, significa que no se encontraron productos que cumplan con los criterios de busqueda.
+    //Si el array es igual a 0, significa que no se encontraron productos que cumplan con los criterios de búsqueda.
     if (productos.length === 0) {
       return res
         .status(404)
@@ -97,7 +97,7 @@ app.get("/productos/nombre/:nombre", async (req, res) => {
 
 //Agregar un nuevo producto.
 app.post("/productos", async (req, res) => {
-  //Crear una instancia del modelo Producto con los datos recibidos en req.body.
+  //Se crea una instancia del modelo Producto con los datos recibidos en el req.body.
   const nuevoProducto = new Producto(req.body);
   try {
     //Validamos que todos los campos requeridos estén presentes en req.body.
@@ -109,9 +109,9 @@ app.post("/productos", async (req, res) => {
     ) {
       return res
         .status(400)
-        .json({ error: "Todos los campos son obligatorios 🚫!" }); //Si no lo estan devolvemos un error 400.
+        .json({ error: "Todos los campos son obligatorios 🚫!" }); //Si no lo están devolvemos un error 400.
     } else {
-      //Caso contrario si estan todos los campos, guardamos el nuevo producto y devolvemos un mensaje con estatus 201.
+      //Caso contrario si están todos los campos, guardamos el nuevo producto y devolvemos un mensaje con estatus 201.
       await nuevoProducto.save();
       res
         .status(201)
@@ -128,9 +128,9 @@ app.post("/productos", async (req, res) => {
 //Modificar SOLO el precio de un producto.
 app.patch("/productos/:id", async (req, res) => {
   const { id } = req.params;
-  const { precio } = req.body; //Extraer solo el campo 'precio' del cuerpo de la solicitud.
+  const { precio } = req.body; //Se extrae solo el campo 'precio' del cuerpo de la solicitud.
 
-  //Verificar que el campo 'precio' esté presente y sea válido.
+  //Verificamos que el campo 'precio' esté presente y sea válido.
   if (!precio) {
     return res
       .status(400)
@@ -175,7 +175,7 @@ app.delete("/productos/:id", async (req, res) => {
         .json({ error: `Producto con ID:${id} no encontrado para eliminar 🕵️❗` });
     } else {
       res.json({
-        message: "Producto eliminado con exito ✅: ",
+        message: "Producto eliminado con éxito ✅: ",
         productoEliminado,
       });
     }
@@ -191,8 +191,7 @@ app.delete("/productos/:id", async (req, res) => {
 });
 
 //Middleware para manejar rutas no encontradas.
-app.use((req, res) => {
-  //Cuando se llama a app.use(), el middleware se ejecuta para cualquier solicitud (GET, POST, etc.) que llegue a la aplicación.
+app.use((req, res) => { //Cuando se llama a app.use(), el middleware se ejecuta para cualquier solicitud (GET, POST, etc.) que llegue a la aplicación.
   res.status(404).json({ error: "Ruta no encontrada 🚫❗" });
 });
 
