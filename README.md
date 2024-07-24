@@ -5,6 +5,14 @@ En este proyecto se realiza una aplicación utilizando Node.js (Express JS) y Mo
 - **Desarrollador:** Matías Di Risio 👍 
 - **GitHub:** [DiriARG](https://github.com/DiriARG)
 
+## Docentes 👨‍🏫 :
+- **Profesor:** Fabio D. Argañaraz A.
+- **GitHub:** [Fabio D. Argañaraz A.](https://github.com/FabioDrizZt)
+- **Tutor:** Juan Nebbia
+- **GitHub:** [JuanNebbia](https://github.com/JuanNebbia)
+- **Tutor:** Nicolás Krein Werle
+- **GitHub:** [NKrein](https://github.com/NKrein)
+
 ## Tabla de contenidos 📚:
 - [Instalación](#instalación-)
 - [Previo a iniciar](#previo-a-iniciar-)
