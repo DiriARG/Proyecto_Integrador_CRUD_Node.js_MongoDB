@@ -82,7 +82,7 @@ Así será la estructura que encontraremos en nuestro editor de código fuente, 
 
 ## Descripción de archivos 📄:
 - **/json**: Carpeta que contiene el dataset (conjunto de datos) JSON:
-  - granjas.json: Archivo de formato JSON que contiene los productos agricolas que vamos a utilizar en nuestra BD.
+  - granjas.json: Archivo de formato JSON que contiene los productos agrícolas que vamos a utilizar en nuestra BD.
 - **/.env**: Archivo que almacena las variables de entorno.
 - **/api.http**: Archivo que contiene todas las rutas de la API REST.
 - **/app.js**: Archivo principal de la aplicación Node.js donde se define toda la lógica de rutas y la conexión a la base de datos.
@@ -91,7 +91,7 @@ Así será la estructura que encontraremos en nuestro editor de código fuente, 
 - **/LICENSE**: Archivo que sirve para especificar los términos y condiciones bajo los cuales el software de este repositorio puede ser utilizado, copiado, modificado o distribuido por otras personas.
 - **/package-lock.json**: Archivo que asegura la reproducibilidad y consistencia de las instalaciones de paquetes en el proyecto con Node.js.
 - **/package.json**: Archivo de configuración de npm que describe el proyecto, incluyendo metadatos como nombre, versión, descripción, scripts, dependencias y más.
-- **/product.js**: Archivo que define el esquema (schema) y el modelo (model) para los productos agricolas.
+- **/product.js**: Archivo que define el esquema (schema) y el modelo (model) para los productos agrícolas.
 - **/README.md**: Archivo guía para poder entender y comenzar a trabajar con este proyecto.
 
 ## Rutas de la API REST 🛤️:
