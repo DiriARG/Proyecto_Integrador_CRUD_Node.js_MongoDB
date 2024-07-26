@@ -14,8 +14,9 @@ En este proyecto se realiza una aplicación utilizando Node.js (Express JS) y Mo
 - **GitHub:** [NKrein](https://github.com/NKrein)
 
 ## Tabla de contenidos 📚:
-- [Instalación](#instalación-)
 - [Previo a iniciar](#previo-a-iniciar-)
+- [Instalación](#instalación-)
+- [Configuración de la Base de Datos](#configuración-de-la-base-de-datos-️)
 - [Iniciando el proyecto](#iniciando-el-proyecto-)
 - [Configuramos el archivo .env (Environment Variables)](#configuramos-el-archivo-env-environment-variables-%EF%B8%8F)
 - [Estructura del proyecto](#estructura-del-proyecto-)
