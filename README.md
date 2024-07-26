@@ -24,6 +24,11 @@ En este proyecto se realiza una aplicación utilizando Node.js (Express JS) y Mo
 - [Ejemplos de uso](#ejemplos-de-uso-)
 - [Recursos](#recursos-)
 
+## Previo a iniciar 🕒:
+- **Descarga e instala** Visual Studio Code. Es el editor de código recomendado para abordar este proyecto.
+- **Descarga e instala** Node.js, un entorno de ejecución de JavaScript de código abierto y multiplataforma que permite crear servidores, aplicaciones web, APIs, herramientas de línea de comandos y scripts.
+- **Crea una cuenta** en MongoDB y **descarga e instala** Compass, que es una herramienta gráfica interactiva para consultar, optimizar y analizar datos en MongoDB. 
+
 ## Instalación 📥:
 1. **Fork** el repositorio desde [aquí](https://github.com/DiriARG/Proyecto_Integrador_CRUD_Node.js_MongoDB/fork).
 2. **Clona** tu fork en tu máquina local:
@@ -34,12 +39,11 @@ git clone https://github.com/tu-usuario/tu-repositorio-fork.git
 4. **Inicia** una nueva terminal y escribe `npm install`, este comando en un directorio que ya contiene el archivo `package.json` genera que <u>npm</u> instale las dependencias especificadas en ese `package.json` y actualice el `package-lock.json` con las versiones exactas de esas dependencias.
 - Si seguiste estas instrucciones de instalación mediante forkear el repositorio y clonandolo a tu máquina local, evita el apartado [Iniciando el proyecto](#iniciando-el-proyecto-), ya que esta orientado a las personas que simplemente han descargado algunos archivos individuales del proyecto.
 
-## Previo a iniciar 🕒:
-- Descarga e instala Visual Studio Code. Es el editor de código recomendado para abordar este proyecto.
-- Descarga e instala Node.js, un entorno de ejecución de JavaScript de código abierto y multiplataforma que permite crear servidores, aplicaciones web, APIs, herramientas de línea de comandos y scripts.
-- Crea una cuenta en MongoDB y descarga e instala Compass, que es una herramienta gráfica interactiva para consultar, optimizar y analizar datos en MongoDB. 
-- Debemos crear una nueva base de datos en MongoDB Compass.
-- Luego importaremos el archivo .json llamado "granjas.json" en nuestra base de datos haciendo click a "ADD DATA" --> "Import JSON or CSV file".
+## Configuración de la Base de Datos 🗄️:
+1. **Crea** una nueva base de datos en MongoDB Compass.
+2. **Importa** el archivo llamado "granjas.json" en tu base de datos:
+- Selecciona tu base de datos.
+- Haz click en "ADD DATA" --> "Import JSON or CSV file" y selecciona el archivo "granjas.json".
 
 ## Iniciando el proyecto 🚀: 
 Este apartado esta orientado a las personas que simplemente quieran descargar los archivos individualmente sin forkear el repositorio, por lo tanto, los archivos que son necesarios para el correcto funcionamiento de la API REST son los siguientes: 
@@ -52,7 +56,7 @@ Este apartado esta orientado a las personas que simplemente quieran descargar lo
 /database.js
 /product.js
 ```
-Teniendo dicha estructura del proyecto, proseguimos: 
+Antes de comenzar, **asegúrate** de haber completado la [Configuración de la Base de Datos](#configuración-de-la-base-de-datos-️). Si ya realizaste estos pasos y tienes la estructura del proyecto como se muestra arriba, puedes continuar con lo siguiente:
 - Abrimos la terminal e inicializamos un nuevo proyecto con `npm init -y`. Esto nos creara el archivo "package.json".
 - Luego instalamos las dependencias necesarias: Express JS (Entorno para desarrollar la API), Mongoose (Biblioteca de modelado de objetos para MongoDB y Node.js) y Morgan (Middleware de registro de solicitudes HTTP) con el siguiente comando: `npm i express mongoose morgan`. Al haber instalado dichos paquetes se crea el archivo "package-lock.json".
 
