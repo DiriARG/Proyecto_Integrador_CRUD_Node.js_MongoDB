@@ -43,8 +43,8 @@ git clone https://github.com/tu-usuario/tu-repositorio-fork.git
 ## Configuración de la Base de Datos 🗄️:
 1. **Crea** una nueva base de datos en MongoDB Compass.
 2. **Importa** el archivo llamado "granjas.json" en tu base de datos:
-- Selecciona tu base de datos.
-- Haz click en "ADD DATA" --> "Import JSON or CSV file" y selecciona el archivo "granjas.json".
+    - Selecciona tu base de datos.
+    - Haz click en "ADD DATA" --> "Import JSON or CSV file" y selecciona el archivo "granjas.json".
 
 ## Iniciando el proyecto 🚀: 
 Este apartado esta orientado a las personas que simplemente quieran descargar los archivos individualmente sin forkear el repositorio, por lo tanto, los archivos que son necesarios para el correcto funcionamiento de la API REST son los siguientes: 
