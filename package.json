@@ -1,7 +1,7 @@
 {
   "name": "proyecto_integrador_crud_node.js_mongodb",
   "version": "1.0.0",
-  "description": "",
+  "description": "En este proyecto se realiza una aplicación utilizando Node.js (Express JS) y MongoDB (Mongoose) para gestionar una colección de productos agrícolas (frutas y verduras). La API permite realizar operaciones CRUD (Crear, Leer, Actualizar y Borrar) sobre los productos.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
