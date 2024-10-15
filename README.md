@@ -79,6 +79,7 @@ Así será la estructura que encontraremos en nuestro editor de código fuente, 
 /database.js
 /Enunciado.md
 /LICENSE
+/Matias_Di_Risio_Correción.pdf
 /package-lock.json
 /package.json
 /product.js
@@ -94,6 +95,7 @@ Así será la estructura que encontraremos en nuestro editor de código fuente, 
 - **/database.js**: Archivo que crea y configura la conexión a la base de datos MongoDB usando Mongoose.
 - **/Enunciado.md**: Archivo que fue brindado por el profesor de la diplomatura. Contiene la consigna del ejercicio a realizar junto a otros detalles que se deben cumplir para la aprobación del proyecto integrador. 
 - **/LICENSE**: Archivo que sirve para especificar los términos y condiciones bajo los cuales el software de este repositorio puede ser utilizado, copiado, modificado o distribuido por otras personas.
+- **/Matias_Di_Risio_Correción.pdf**: Documento con las devoluciones del primer trabajo integrador, incluyendo comentarios y recomendaciones del profesor.
 - **/package-lock.json**: Archivo que asegura la reproducibilidad y consistencia de las instalaciones de paquetes en el proyecto con Node.js.
 - **/package.json**: Archivo de configuración de npm que describe el proyecto, incluyendo metadatos como nombre, versión, descripción, scripts, dependencias y más.
 - **/product.js**: Archivo que define el esquema (schema) y el modelo (model) para los productos agrícolas.
